@@ -1,0 +1,64 @@
+fn is_alpha(s: string) {
+  let i: int;
+  let ch: string;
+  let res = true;
+  for i = 0; i < len(s); ++i {
+    ch = s[i];
+    if !("a" <= ch and ch <= "z" or "A" <= ch and ch <= "Z") {
+      res = false;
+    }
+  }
+  return res;
+}
+
+fn is_numeric(s: string) {
+  let i: int;
+  let ch: string;
+  let res = true;
+  for i = 0; i < len(s); ++i {
+    ch = s[i];
+    if !("0" <= ch and ch <= "9") {
+      res = false;
+    }
+  }
+  return res;
+}
+
+fn is_alphanumeric(s: string) {
+  let i: int;
+  let ch: string;
+  let res = true;
+  for i = 0; i < len(s); ++i {
+    ch = s[i];
+    if !(is_alpha(ch) or is_numeric(ch)) {
+      res = false;
+    }
+  }
+  return res;
+}
+
+fn startswith(str: string, start: string) {
+  if len(start) > len(str) return false;
+  let i: int;
+  let res = true;
+  for i = 0; i < len(start); ++i {
+    if str[i] != start[i] {
+      res = false;
+    }
+  }
+  return res;
+}
+
+fn endswith(str: string, end: string) {
+  if len(end) > len(str) return false;
+  let i: int;
+  let res = true;
+  let strLen = len(str);
+  let endLen = len(end);
+  for i = 0; i < len(end); ++i {
+    if str[strLen - i - 1] != end[endLen - i - 1] {
+      res = false;
+    }
+  }
+  return res;
+}
